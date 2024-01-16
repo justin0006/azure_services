@@ -1,0 +1,60 @@
+create repo in azure devops
+open gui, code
+push the code to master branch
+
+Now code is present, we need to do Build pipeline will test the code and artifact will be created 
+
+Goto pipeline create, classic editor at bottom, select project , repo, branch
+Empty job, click on agent +, add task copy file, publish artifact //only 2 task because its html laugage .
+
+agent pool is server provided by microsoft, agent pool =pipeline, select agent = window latest
+then select copy files under content =** ,target  click on i copy bild artifact. 
+same for publish build artifact
+Save and queue Run
+
+Drop artifact will created
+
+Next step is Release pipeline, it will take artifact and push into cloud before we need to create a App services in cloud inside it Web app
+
+for html Runtime stack is .NET 7 (sts)
+
+Goto release pipeline, empty job, stage name means dev, qa, pro, stage etc. so now give dev 
+
+click artifact, source is biild name, click 1 job, edit release pipeline name as per project
+
+add agemt pool will azure app service deploy.
+Now we need service connection to connect between devops and cloud
+goto project setting, service connection, create service, select azure resource manager, service principle manual, Now you need to enter cloud subcription detail into devps ac. 
+
+add detail, authentication-. will be in entra id (active dir), goto cloud find entra id, click on app registration, new registra, give name, register, you will get application client id, this you need to enter iin devops in service principle same as tenant, on left side in cloud certificate & secreat, des name, add, you get secret id and paste i devops ac under service principle id, Verify. it will fail but then we need to go in cloud click subcription, access iam. add role, select priviled admin role, select contribitor role, next, select memeber, type projectname, select and review assign
+
+It will verified now and give proper name like initial connection under service connection name checkmark secuity and verify save.
+
+goto release pipeline new release same process, continue from aboove, select name scription initial connection and then in appservice name select projectname
+
+under package folder 3 dot select drop artifact, save, create release, done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
