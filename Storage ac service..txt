@@ -1,0 +1,12 @@
+Storage ac service.
+
+create a SA, we jave 4 differnet sa. Containers we can use to store data, hosting application only FE. File shares, queues, Tables.
+
+create container, there are 3 different tyrpe, first anonaymous anyone can access it, once you upload any file or image, video. click on the file and you get URL. anyone cana view it.
+therir access tier, we can chnage it, hot is low latancy, acheive tyooe is very less money charge. 
+Second tyoe is private, on one can access the document untill you generate SAS, shared access singnature. 
+Blob type, small data change 
+
+File Shares: is a way to store our files from our PC to file share. create file share give name, connect, it will show z drice, show script. Goto your this PC on top 3 dots click you will see map network drive here you need to add credential from script, username and passwprd is also in Script. new drvie or filder is created. 
+
+Queues:creaate queue, give url to devopler. you can push some messages, add messages, payment link, delivery address. So also we need to create Function app, you can see there are trigger eg http, queue stroage trigger, etc. we need to link it between queue and function app. under template you will see.  queue it will automaticaly triger in function app. 
